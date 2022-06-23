@@ -1,10 +1,13 @@
 let pizzaPrice = 0;
 let sizePrice = 0;
 let topingPrice = 0
+
+
 function getPizza(value){
-        document.querySelector('input[name=small]').checked = false;
-        document.querySelector('input[name=medium]').checked = false;
-        document.querySelector('input[name=large]').checked = false;
+    let size = document.querySelector("input[name=size]:checked")
+    if(size){
+        sizePrice = reCountSize();
+    }
     if(value == "pizza 1"){
         pizzaPrice = 8;
         document.querySelector('input[name=small]').disabled = false;
@@ -28,7 +31,6 @@ function getPizza(value){
         document.querySelector('input[class=tuna]').disabled = false;
         document.querySelector('input[class=sausage]').disabled = true;
         document.querySelector('input[class=sausage]').checked = false;
-        topingPrice = getToping()
     }else if(value == "pizza 2"){
         pizzaPrice = 10;
         document.querySelector('input[name=small]').disabled = false;
@@ -50,7 +52,6 @@ function getPizza(value){
         document.querySelector('input[class=tuna]').checked = false;
         document.querySelector('input[class=sausage]').disabled = true;
         document.querySelector('input[class=sausage]').checked = false;
-        topingPrice = getToping()
     }else{
         pizzaPrice = 12;
         document.querySelector('input[name=small]').disabled = false;
@@ -71,11 +72,10 @@ function getPizza(value){
         document.querySelector('input[class=zucchuni]').disabled = false;
         document.querySelector('input[class=tuna]').disabled = false;
         document.querySelector('input[class=sausage]').disabled = false;
-        
-        topingPrice = getToping()
     }
+    topingPrice = recountToping()
     let total = document.getElementById('total')
-    let sum = pizzaPrice + topingPrice
+    let sum = pizzaPrice + topingPrice + sizePrice;
     total.innerHTML = "$" + sum 
 }
 
@@ -90,16 +90,35 @@ function getSize(value){
         document.querySelector("input[name=small]").checked = false;
         document.querySelector("input[name=medium]").checked = true;
         document.querySelector("input[name=large]").checked = false;
-    }else {
+    }else{
         sizePrice = 2
         document.querySelector("input[name=small]").checked = false;
         document.querySelector("input[name=medium]").checked = false;
         document.querySelector("input[name=large]").checked = true;
     }
     let total = document.getElementById('total')
-    let sum = pizzaPrice + sizePrice
-    total.innerHTML = "$" + sum
-    
+            let sum = pizzaPrice + sizePrice + topingPrice;
+            total.innerHTML = "$" + sum 
+}
+
+function reCountSize(){
+    if(value == "small"){
+        sizePrice = -1
+        document.querySelector("input[name=small]").checked = true;
+        document.querySelector("input[name=medium]").checked = false;
+        document.querySelector("input[name=large]").checked = false;
+    }else if(value == "medium"){
+        sizePrice = 0
+        document.querySelector("input[name=small]").checked = false;
+        document.querySelector("input[name=medium]").checked = true;
+        document.querySelector("input[name=large]").checked = false;
+    }else if(value == "large"){
+        sizePrice = 2
+        document.querySelector("input[name=small]").checked = false;
+        document.querySelector("input[name=medium]").checked = false;
+        document.querySelector("input[name=large]").checked = true;
+    }
+    return sizePrice
 }
 
 function getToping(){
@@ -110,8 +129,19 @@ function getToping(){
                     topingPrice += parseFloat(toping[i].value);
                 }
             }
-        let total = document.getElementById('total')
-        let sum = pizzaPrice + sizePrice + topingPrice
-        total.innerHTML = "$" + sum
+            let total = document.getElementById('total')
+            let sum = pizzaPrice + topingPrice + sizePrice;
+            total.innerHTML = "$" + sum 
         
+}
+
+function recountToping(){
+    let toping = document.getElementsByName("toping")
+        let topingPrice = 0
+            for(let i = 0; i < toping.length; i++){
+                if(toping[i].checked){
+                    topingPrice += parseFloat(toping[i].value);
+                }
+            }
+        return topingPrice;
 }
