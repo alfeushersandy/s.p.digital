@@ -4,10 +4,6 @@ let topingPrice = 0
 
 
 function getPizza(value){
-    let size = document.querySelector("input[name=size]:checked")
-    if(size){
-        sizePrice = reCountSize();
-    }
     if(value == "pizza 1"){
         pizzaPrice = 8;
         document.querySelector('input[name=small]').disabled = false;
@@ -80,25 +76,27 @@ function getPizza(value){
 }
 
 function getSize(value){
+    topingPrice = recountToping()
     if(value == "small"){
-        sizePrice = -1
         document.querySelector("input[name=small]").checked = true;
         document.querySelector("input[name=medium]").checked = false;
         document.querySelector("input[name=large]").checked = false;
+        sizePrice = -1
     }else if(value == "medium"){
-        sizePrice = 0
         document.querySelector("input[name=small]").checked = false;
         document.querySelector("input[name=medium]").checked = true;
         document.querySelector("input[name=large]").checked = false;
+        sizePrice = 0
     }else{
-        sizePrice = 2
         document.querySelector("input[name=small]").checked = false;
         document.querySelector("input[name=medium]").checked = false;
         document.querySelector("input[name=large]").checked = true;
+        sizePrice = 2
     }
     let total = document.getElementById('total')
-            let sum = pizzaPrice + sizePrice + topingPrice;
-            total.innerHTML = "$" + sum 
+        let sum = pizzaPrice + sizePrice + topingPrice;
+        total.innerHTML = "$" + sum
+     
 }
 
 function reCountSize(){
