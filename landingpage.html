@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Pizza Order</title>
+</head>
+<body>
+        <h1>Pizza</h1>
+        <section>
+            <div class="card">
+                <div class="head-card">
+                    <img src="1.jpg" alt="1">
+                </div>
+                <div class="headline" style="text-align: center;">
+                    <h1>Pizza 1</h1>
+                </div>
+                <div class="price" style="text-align: center;">
+                    <label for="html">$8</label><br>
+                    <input type="radio" onclick="getPizza(this.value)" id="pizza" name="pizza" value="pizza 1">
+                </div>
+            </div>
+            <div class="card">
+                <div class="head-card">
+                    <img src="1.jpg" alt="1">
+                </div>
+                <div class="headline" style="text-align: center;">
+                    <h1>Pizza 2</h1>
+                </div>
+                <div class="price" style="text-align: center;">
+                    <label for="html">$10</label><br>
+                    <input type="radio" onclick="getPizza(this.value)" id="pizza" name="pizza" value="pizza 2">
+                </div>
+            </div>
+            <div class="card">
+                <div class="head-card">
+                    <img src="1.jpg" alt="1">
+                </div>
+                <div class="headline" style="text-align: center;">
+                    <h1>Pizza 3</h1>
+                </div>
+                <div class="price" style="text-align: center;">
+                    <label for="html">$12</label><br>
+                    <input type="radio" onclick="getPizza(this.value)" id="Pizza" name="pizza" value="pizza 3">
+                </div>
+            </div>
+        </section>
+        <h1>Size</h1>
+        <section>
+                <div class="size">
+                    <input type="radio" onclick="getSize(this.value)" id="size" name="small" value="small" disabled><br>
+                    <label for="html">Small</label><br>
+                </div>
+                <div class="size">
+                    <input type="radio" onclick="getSize(this.value)" id="size" name="medium" value="medium" disabled><br>
+                    <label for="html">Medium</label><br>
+                </div>
+                <div class="size">
+                    <input type="radio" onclick="getSize(this.value)" id="size" name="large" value="large" disabled><br>
+                    <label for="html">Large</label><br>
+                </div>
+        </section>
+        <h1>Toppings</h1>
+        <section class="toping_section">
+            <div class="toping">
+                <input type="checkbox" onclick="getToping()" id="toping" class="avocado" name="toping" value="1" disabled><br>
+                <label for="html">Avocado</label><br>
+            </div>
+            <div class="toping">
+                <input type="checkbox" onclick="getToping()" id="lobster" class="lobster" name="toping" value="2" disabled><br>
+                <label for="html">lobster</label><br>
+            </div>
+            <div class="toping">
+                <input type="checkbox" onclick="getToping()" id="toping" class="bacon" name="toping" value="3" disabled><br>
+                <label for="html">bacon</label><br>
+            </div>
+            <div class="toping">
+                <input type="checkbox" onclick="getToping()" id="toping" class="brocoli" name="toping" value="1" disabled><br>
+                <label for="html">Brocoli</label><br>
+            </div>
+            <div class="toping">
+                <input type="checkbox" onclick="getToping()" id="toping" class="oyster" name="toping" value="2" disabled><br>
+                <label for="html">Oyster</label><br>
+            </div>
+            <div class="toping">
+                <input type="checkbox" onclick="getToping()" id="toping" class="duck" name="toping" value="3" disabled><br>
+                <label for="html">Duck</label><br>
+            </div>
+            <div class="toping">
+                <input type="checkbox" onclick="getToping()" id="toping" class="onions" name="toping" value="1" disabled><br>
+                <label for="html">Onions</label><br>
+            </div>
+            <div class="toping">
+                <input type="checkbox" onclick="getToping()" id="toping" class="salmon" name="toping" value="2" disabled><br>
+                <label for="html">Salmon</label><br>
+            </div>
+            <div class="toping">
+                <input type="checkbox" onclick="getToping()" id="toping" class="ham" name="toping" value="3" disabled><br>
+                <label for="html">Ham</label><br>
+            </div>
+            <div class="toping">
+                <input type="checkbox" onclick="getToping()" id="toping" class="zucchuni" name="toping" value="1" disabled><br>
+                <label for="html">Zucchuni</label><br>
+            </div>
+            <div class="toping">
+                <input type="checkbox" onclick="getToping()" id="toping" class="tuna" name="toping" value="2" disabled><br>
+                <label for="html">Tuna</label><br>
+            </div>
+            <div class="toping">
+                <input type="checkbox" onclick="getToping()" id="toping" class="sausage" name="toping" value="3" disabled><br>
+                <label for="html">Sausage</label><br>
+            </div>
+        </section>
+        <h1>Price</h1>
+        <section>
+            <h2 id="total" style="text-align: right;"></h2>
+        </section>
+<script src="script.js"></script>
+</body>
+</html>
